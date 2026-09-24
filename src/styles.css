@@ -1,0 +1,120 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    background: #102c3b;
+    color: #fff8e7;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    min-height: 48px;
+    padding: 0.65rem 1rem;
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: default;
+    opacity: 0.6;
+}
+
+:focus-visible {
+    outline: 3px solid #ffd166;
+    outline-offset: 3px;
+}
+
+.menu-panel {
+    max-width: 48rem;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+form {
+    display: grid;
+    gap: 0.75rem;
+}
+
+input,
+select {
+    min-height: 44px;
+    padding: 0.5rem;
+}
+
+[role="alert"] {
+    color: #ffc4b8;
+}
+
+.menu-title {
+    padding: 1.5rem;
+    text-align: center;
+    color: #fff5d9;
+    background: #4b3428 url('/assets/png/default/ui/menu/panel_menu.png') center / 100% 100% no-repeat;
+}
+
+button:disabled {
+    opacity: .55;
+    cursor: default;
+}
+
+dialog {
+    color: #f4f7fa;
+    background: #142e3a;
+    border: 2px solid #d9bf84;
+    border-radius: .5rem;
+}
+
+dialog::backdrop {
+    background: #0009;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-variant-numeric: tabular-nums;
+}
+
+th,
+td {
+    padding: .5rem;
+    text-align: left;
+    border-bottom: 1px solid #496473;
+    overflow-wrap: anywhere;
+}
+
+[role="tabpanel"] {
+    overflow-x: auto;
+}
+
+nav[aria-label="Record pages"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    margin-top: .75rem;
+}
+
+select,
+input {
+    font: inherit;
+    min-height: 44px;
+    max-width: 100%;
+}
+
+.network-panel {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: #183947;
+}
+
+.network-panel label {
+    display: block;
+    margin: .75rem 0;
+}

@@ -1,0 +1,317 @@
+.match-screen {
+    position: relative;
+    height: 100dvh;
+    min-height: 280px;
+    overflow: hidden;
+    isolation: isolate;
+    background: #197e9b;
+}
+
+.match-screen .arena-host {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.match-screen .arena-host canvas {
+    display: block;
+}
+
+.match-screen .arena-host:focus-visible {
+    outline-offset: -4px;
+}
+
+.game-hud {
+    position: absolute;
+    z-index: 2;
+    top: max(16px, env(safe-area-inset-top));
+    left: max(20px, env(safe-area-inset-left));
+    right: max(20px, env(safe-area-inset-right));
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    pointer-events: none;
+}
+
+.game-hud .hud {
+    display: contents;
+}
+
+.game-health {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-right: auto;
+}
+
+.game-heart {
+    width: clamp(28px, 3vw, 48px);
+    height: auto;
+}
+
+.game-health-bar {
+    position: relative;
+    width: clamp(190px, 23vw, 330px);
+    aspect-ratio: 256 / 48;
+}
+
+.game-health-bar>img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.game-health-bar .game-health-fill {
+    position: absolute;
+    inset: 0;
+}
+
+.game-health-bar strong {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding-top: 2px;
+    font-size: clamp(13px, 1.3vw, 19px);
+    color: #fffbea;
+    text-shadow: 0 2px 3px #16320e;
+    font-variant-numeric: tabular-nums;
+}
+
+.game-counters {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.game-counter {
+    width: clamp(100px, 10vw, 166px);
+    aspect-ratio: 160 / 56;
+    background: center / 100% 100% no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: #fff6de;
+    font-size: clamp(16px, 1.6vw, 25px);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    text-shadow: 0 2px 2px #0007;
+}
+
+.game-counter img {
+    width: 26%;
+    height: 65%;
+    object-fit: contain;
+}
+
+.game-actions {
+    display: flex;
+    gap: 8px;
+    pointer-events: auto;
+}
+
+.match-screen .game-round-button {
+    border: 0;
+    border-radius: 50%;
+    padding: 0;
+    width: clamp(52px, 5vw, 72px);
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    background: var(--round-normal) center / 100% 100% no-repeat;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: none;
+    user-select: none;
+}
+
+.match-screen .game-round-button img {
+    width: 50%;
+    height: 50%;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+@media (hover: hover) {
+    .match-screen .game-round-button:hover:not(:disabled) {
+        background-image: var(--round-hover);
+    }
+}
+
+.match-screen .game-round-button:active:not(:disabled) {
+    background-image: var(--round-pressed);
+}
+
+.match-screen .touch-controls {
+    position: absolute;
+    z-index: 2;
+    bottom: max(22px, env(safe-area-inset-bottom));
+    left: max(22px, env(safe-area-inset-left));
+    right: max(22px, env(safe-area-inset-right));
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+.match-screen .control-pad {
+    display: grid;
+    grid-template-columns: repeat(3, clamp(52px, 5vw, 72px));
+    grid-template-rows: repeat(2, clamp(52px, 5vw, 72px));
+    column-gap: 4px;
+    row-gap: 0;
+}
+
+.match-screen .control-pad button {
+    pointer-events: auto;
+}
+
+.control-pad [data-action="forward"],
+.control-pad [data-action="fireFront"] {
+    grid-area: 1 / 2;
+}
+
+.control-pad [data-action="turnLeft"],
+.control-pad [data-action="fireLeft"] {
+    grid-area: 2 / 1;
+}
+
+.control-pad [data-action="turnRight"],
+.control-pad [data-action="fireRight"] {
+    grid-area: 2 / 3;
+}
+
+.game-loading {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    display: grid;
+    place-items: center;
+    background: #123544;
+}
+
+.game-loading>.panel-loading {
+    width: 100%;
+    min-height: 100%;
+    max-width: none;
+}
+
+.game-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+    .game-hud {
+        top: max(10px, env(safe-area-inset-top));
+        left: max(12px, env(safe-area-inset-left));
+        right: max(12px, env(safe-area-inset-right));
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .game-health {
+        gap: 2px;
+    }
+
+    .game-health-bar {
+        width: clamp(168px, 43vw, 220px);
+    }
+
+    .game-counters {
+        order: 3;
+        width: 100%;
+        justify-content: flex-end;
+        gap: 8px;
+    }
+
+    .game-counter {
+        width: 104px;
+    }
+
+    .game-actions {
+        gap: 2px;
+    }
+
+    .game-actions .game-round-button {
+        width: 48px;
+    }
+
+    .match-screen .touch-controls {
+        left: max(10px, env(safe-area-inset-left));
+        right: max(10px, env(safe-area-inset-right));
+        bottom: max(12px, env(safe-area-inset-bottom));
+    }
+
+    .match-screen .control-pad {
+        column-gap: 0;
+    }
+}
+
+@media (max-height: 500px) and (min-width: 600px) {
+    .game-hud {
+        top: 8px;
+        left: max(12px, env(safe-area-inset-left));
+        right: max(12px, env(safe-area-inset-right));
+        gap: 10px;
+        flex-wrap: nowrap;
+    }
+
+    .game-health-bar {
+        width: 190px;
+    }
+
+    .game-heart {
+        width: 30px;
+    }
+
+    .game-counters {
+        order: initial;
+        width: auto;
+    }
+
+    .game-counter {
+        width: 100px;
+    }
+
+    .game-actions .game-round-button {
+        width: 48px;
+    }
+
+    .match-screen .control-pad {
+        grid-template-columns: repeat(3, 52px);
+        grid-template-rows: repeat(2, 52px);
+    }
+
+    .match-screen .control-pad .game-round-button {
+        width: 52px;
+    }
+
+    .match-screen .touch-controls {
+        bottom: max(8px, env(safe-area-inset-bottom));
+    }
+}
+
+@media (max-width: 359px) {
+    .game-health-bar {
+        width: 152px;
+    }
+
+    .game-heart {
+        width: 24px;
+    }
+
+    .match-screen .control-pad {
+        grid-template-columns: repeat(3, 48px);
+        grid-template-rows: repeat(2, 48px);
+    }
+
+    .match-screen .control-pad .game-round-button {
+        width: 48px;
+    }
+}

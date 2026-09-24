@@ -1,0 +1,770 @@
+.panel-scene,
+.panel-frame {
+    color: #fff0cb;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+}
+
+.panel-scene {
+    min-height: 100dvh;
+    display: grid;
+    place-items: center;
+    padding: 32px 20px;
+    isolation: isolate;
+    background: linear-gradient(#081d2757, #081d2757),
+        url('/assets/ui_scene_background.png') center / cover fixed no-repeat;
+}
+
+.panel-frame {
+    position: relative;
+    box-sizing: border-box;
+    border: 40px solid transparent;
+    border-image: url('/assets/png/retina/ui/menu/panel_menu.png') 80 64 fill / 40px 32px / 0 stretch;
+    background: none;
+    border-radius: 0;
+    text-align: center;
+}
+
+.panel-card {
+    width: min(800px, 100%);
+    min-height: 680px;
+    padding: 48px 44px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.panel-frame h1,
+.panel-frame h2 {
+    margin: 0 0 28px;
+    color: #ffe9b4;
+    font-size: clamp(28px, 2.3vw, 40px);
+    font-weight: 900;
+    line-height: 1.2;
+    text-transform: uppercase;
+    text-shadow: 0 3px 1px #17232b;
+}
+
+.panel-brand {
+    position: fixed;
+    right: 4%;
+    bottom: 2%;
+    width: 160px;
+    height: auto;
+    pointer-events: none;
+}
+
+.panel-frame .panel-button {
+    display: grid;
+    place-items: center;
+    appearance: none;
+    width: min(340px, 100%);
+    min-height: 84px;
+    margin: 0;
+    padding: 15px 30px;
+    border: 0;
+    border-radius: 0;
+    background: center / 100% 100% no-repeat;
+    font: inherit;
+    font-size: clamp(20px, 1.6vw, 27px);
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #442b13;
+    cursor: pointer;
+}
+
+.panel-frame .panel-button--primary {
+    background-image: url('/assets/png/retina/ui/menu/button_primary_normal.png');
+}
+
+.panel-frame .panel-button--secondary {
+    color: #fff0cb;
+    background-image: url('/assets/png/retina/ui/menu/button_secondary_normal.png');
+}
+
+@media (hover: hover) {
+    .panel-frame .panel-button--primary:hover:not(:disabled) {
+        background-image: url('/assets/png/retina/ui/menu/button_primary_hover.png');
+    }
+
+    .panel-frame .panel-button--secondary:hover:not(:disabled) {
+        filter: brightness(1.15);
+    }
+}
+
+.panel-frame .panel-button--primary:active:not(:disabled) {
+    background-image: url('/assets/png/retina/ui/menu/button_primary_pressed.png');
+}
+
+.panel-frame .panel-button--secondary:active:not(:disabled) {
+    background-image: url('/assets/png/retina/ui/menu/button_secondary_pressed.png');
+}
+
+.panel-frame .panel-button:disabled {
+    background-image: url('/assets/png/retina/ui/menu/button_primary_disabled.png');
+}
+
+.panel-frame .panel-round {
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    appearance: none;
+    width: 48px;
+    height: 48px;
+    min-height: 48px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: url('/assets/png/retina/ui/controls/button_round_normal.png') center / contain no-repeat;
+}
+
+.panel-round img {
+    width: 50%;
+    height: 50%;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+@media (hover: hover) {
+    .panel-frame .panel-round:hover:not(:disabled) {
+        background-image: url('/assets/png/retina/ui/controls/button_round_hover.png');
+    }
+}
+
+.panel-frame .panel-round:active:not(:disabled) {
+    background-image: url('/assets/png/retina/ui/controls/button_round_pressed.png');
+}
+
+.panel-frame .panel-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.panel-frame .panel-text-button {
+    background: none;
+    border: 0;
+    color: #d9c69f;
+    min-height: 44px;
+    padding: 8px 14px;
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+.panel-frame .panel-hint {
+    color: #cbbf9f;
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.panel-frame .panel-error {
+    color: #ffbea5;
+    max-width: 42ch;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.panel-error:empty {
+    display: none;
+}
+
+.panel-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.panel-frame :focus-visible {
+    outline: 3px solid #fff0b8;
+    outline-offset: 3px;
+}
+
+.panel-frame .options-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: min(440px, 100%);
+}
+
+.option-setting {
+    display: grid;
+    gap: 16px;
+    justify-items: center;
+}
+
+.option-setting label {
+    font-size: 17px;
+    font-weight: 700;
+    color: #dbc99f;
+}
+
+.option-stepper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: min(332px, 100%);
+    gap: 16px;
+}
+
+.option-value {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffedc0;
+    font-size: 26px;
+    font-weight: 800;
+}
+
+.panel-frame .option-value input {
+    width: 4ch;
+    min-height: 48px;
+    padding: 0;
+    text-align: right;
+    color: inherit;
+    background: none;
+    border: 0;
+    border-bottom: 1px solid transparent;
+    border-radius: 0;
+    font: inherit;
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+.option-value input::-webkit-inner-spin-button,
+.option-value input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.panel-frame .option-value input:hover {
+    border-bottom-color: #baa36c;
+}
+
+.option-value span {
+    padding-left: 6px;
+}
+
+/* Native dialogs retain focus trapping, Escape and restoration to their opener. */
+dialog.panel-dialog {
+    position: fixed;
+    inset: 0;
+    height: fit-content;
+    margin: auto;
+    max-width: calc(100vw - 32px);
+    max-height: calc(100dvh - 32px);
+    overflow: auto;
+}
+
+dialog.panel-dialog:not([open]) {
+    display: none;
+}
+
+.panel-dialog::backdrop {
+    background: linear-gradient(#081d2757, #081d2757),
+        /* url('/assets/ui_scene_background.png') center / cover no-repeat; */
+}
+
+.pause-panel .pause-description {
+    margin: 0 0 24px;
+    font-size: 17px;
+    font-weight: 700;
+    color: #dbc99f;
+}
+
+.pause-panel .panel-actions {
+    gap: 16px;
+}
+
+.panel-result .result-score {
+    color: #ffda81;
+    font-size: 80px;
+    font-weight: 900;
+    line-height: 1;
+    margin: 0 0 12px;
+    font-variant-numeric: tabular-nums;
+}
+
+.result-summary {
+    margin: 0 0 28px;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 800;
+    color: #d7c59b;
+}
+
+.result-registration {
+    width: 100%;
+    margin-top: 16px;
+    font-size: 13px;
+}
+
+.result-registration p {
+    margin: 4px 0;
+}
+
+.result-registration .panel-button {
+    min-height: 58px;
+    font-size: 15px;
+    margin: 12px auto 0;
+    width: min(280px, 100%);
+}
+
+/* Five real records per page match the sample's spacing. */
+dialog.panel-records {
+    width: min(1440px, calc(100vw - 40px));
+    min-height: 760px;
+    padding: 0 30px 12px;
+}
+
+.panel-records h2 {
+    margin: 0 0 12px;
+}
+
+.record-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+    margin-bottom: 12px;
+}
+
+.panel-records .record-tabs>button {
+    width: 240px;
+    min-height: 60px;
+    font-size: 20px;
+    padding: 12px 22px;
+}
+
+.record-context {
+    text-align: center;
+    text-transform: uppercase;
+    color: #bfd0d2;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 14px 0 22px;
+}
+
+.records-content {
+    min-height: 394px;
+}
+
+.records-content [role='alert'] {
+    padding: 16px;
+}
+
+.record-page {
+    min-height: 350px;
+}
+
+.record-table-scroll {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.panel-frame .record-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px;
+    font-variant-numeric: tabular-nums;
+    table-layout: fixed;
+}
+
+.record-table caption {
+    text-align: left;
+}
+
+.panel-frame .record-table th {
+    padding: 0 14px 6px;
+    border: 0;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #b9cbd0;
+}
+
+.panel-frame .record-table td {
+    padding: 14px;
+    height: 52px;
+    text-align: left;
+    border: 0;
+    border-block: 1px solid #0b202b77;
+    border-right: 1px solid #ffffff06;
+    background: #10222fc9;
+    color: #fff1cc;
+    font-size: 17px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.record-table td:first-child {
+    border-radius: 8px 0 0 8px;
+}
+
+.record-table td:last-child {
+    border-radius: 0 8px 8px 0;
+}
+
+.panel-frame .record-table .record-highlight td {
+    background: #70603a88;
+    border-block-color: #ac92514d;
+}
+
+.panel-frame .record-table .record-points,
+.panel-frame .record-table .record-rank {
+    color: #ffdc89;
+}
+
+.record-captain {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.record-star {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    flex: 0 0 auto;
+}
+
+.record-you {
+    font-size: 10px;
+    border: 1px solid #cfb36b88;
+    background: #9e853844;
+    color: #ffe2a0;
+    padding: 2px 5px;
+    border-radius: 3px;
+    flex: 0 0 auto;
+}
+
+.panel-frame .record-table .record-date {
+    color: #b0c7cf;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.panel-frame .record-table .record-date strong {
+    color: #fff1cc;
+    font-size: 17px;
+}
+
+.record-outcome {
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.record-outcome--time {
+    color: #bfdca8;
+}
+
+.record-outcome--death {
+    color: #ffb79e;
+}
+
+.panel-frame .record-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin: 10px 0 20px;
+}
+
+.record-pagination span {
+    color: #bfd0d2;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.panel-records .record-pagination .panel-round {
+    width: 44px;
+    height: 44px;
+    min-height: 44px;
+}
+
+.panel-records .record-return {
+    width: 290px;
+    min-height: 72px;
+    font-size: 23px;
+    margin: 0 auto;
+}
+
+.record-filter {
+    position: absolute;
+    right: 36px;
+    top: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 0;
+    color: #bbced1;
+    font-size: 12px;
+}
+
+.record-filter select {
+    color: #fff0cb;
+    background: #152c3a;
+    border: 1px solid #826536;
+    border-radius: 4px;
+    min-height: 32px;
+    padding: 4px 8px;
+    font-size: 12px;
+}
+
+.record-ranking th:nth-child(1) {
+    width: 14%;
+}
+
+.record-ranking th:nth-child(2) {
+    width: 40%;
+}
+
+.record-ranking th:nth-child(3) {
+    width: 17%;
+}
+
+.record-history th:nth-child(1) {
+    width: 34%;
+}
+
+.record-history th:nth-child(2) {
+    width: 19%;
+}
+
+.record-history th:nth-child(3) {
+    width: 24%;
+}
+
+@media (max-width: 700px) {
+    .panel-scene {
+        padding: 20px 12px 60px;
+    }
+
+    .panel-frame {
+        border-width: 28px 22px;
+        border-image-width: 28px 22px;
+    }
+
+    .panel-card {
+        min-height: 570px;
+        padding: 24px 12px;
+    }
+
+    .panel-frame h1,
+    .panel-frame h2 {
+        font-size: 28px;
+        margin-bottom: 24px;
+    }
+
+    .panel-frame .panel-button {
+        min-height: 70px;
+        padding-inline: 22px;
+        font-size: 21px;
+    }
+
+    .panel-brand {
+        width: 112px;
+        right: 12px;
+        bottom: 0;
+    }
+
+    .option-stepper {
+        gap: 4px;
+    }
+
+    .option-value {
+        font-size: 24px;
+    }
+
+    .panel-frame .panel-hint {
+        font-size: 12px;
+    }
+
+    dialog.panel-records {
+        width: calc(100vw - 16px);
+        max-width: calc(100vw - 16px);
+        min-height: 0;
+        padding: 12px 6px 22px;
+    }
+
+    .panel-records h2 {
+        font-size: 26px;
+        margin-bottom: 12px;
+    }
+
+    .record-tabs {
+        gap: 6px;
+    }
+
+    .panel-records .record-tabs>button {
+        width: 50%;
+        min-width: 0;
+        min-height: 58px;
+        padding: 10px 6px;
+        font-size: 12px;
+    }
+
+    .record-context {
+        font-size: 11px;
+        line-height: 1.5;
+        margin-block: 12px;
+    }
+
+    .records-content,
+    .record-page {
+        min-height: 0;
+    }
+
+    .panel-frame .record-table th {
+        padding: 0 5px 4px;
+        font-size: 9px;
+        letter-spacing: .3px;
+    }
+
+    .panel-frame .record-table td {
+        padding: 10px 5px;
+        font-size: 13px;
+        height: 54px;
+    }
+
+    .record-captain {
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+
+    .record-star {
+        width: 20px;
+        height: 20px;
+    }
+
+    .record-you {
+        font-size: 8px;
+    }
+
+    .panel-frame .record-table .record-date {
+        font-size: 10px;
+    }
+
+    .panel-frame .record-table .record-date strong {
+        font-size: 12px;
+    }
+
+    .record-outcome {
+        font-size: 10px;
+    }
+
+    .record-history th:nth-child(1) {
+        width: 32%;
+    }
+
+    .record-history th:nth-child(2) {
+        width: 17%;
+    }
+
+    .record-history th:nth-child(3) {
+        width: 24%;
+    }
+
+    .panel-records .record-return {
+        max-width: 260px;
+        width: 100%;
+        min-height: 66px;
+        font-size: 20px;
+    }
+
+    .record-filter {
+        position: static;
+        flex-wrap: wrap;
+    }
+
+    .record-filter select {
+        min-height: 44px;
+    }
+
+    .panel-result .result-score {
+        font-size: 68px;
+    }
+
+    .result-summary {
+        font-size: 13px;
+    }
+}
+
+@media (max-height: 720px) {
+    .panel-scene {
+        place-items: start center;
+    }
+
+    .panel-card {
+        min-height: 0;
+        padding-block: 28px;
+    }
+
+    dialog.panel-card {
+        min-height: 0;
+        justify-content: flex-start;
+    }
+
+    dialog.panel-records {
+        min-height: 0;
+    }
+
+    .panel-frame .options-form {
+        gap: 14px;
+    }
+
+    .panel-brand {
+        display: none;
+    }
+}
+
+@media (min-width: 701px) and (max-width: 1100px) {
+    .record-filter {
+        position: static;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 700px) and (max-height: 800px) {
+    .panel-dialog .panel-brand {
+        display: none;
+    }
+}
+
+@media (max-height: 520px) {
+    .panel-frame {
+        border-width: 28px 24px;
+        border-image-width: 28px 24px;
+    }
+
+    .panel-card {
+        padding-block: 14px;
+    }
+
+    .panel-frame h1,
+    .panel-frame h2 {
+        font-size: 28px;
+        margin-bottom: 16px;
+    }
+
+    .panel-frame .panel-button {
+        min-height: 58px;
+        font-size: 20px;
+    }
+
+    .pause-panel .pause-description {
+        margin-bottom: 16px;
+    }
+
+    .pause-panel .panel-actions {
+        gap: 8px;
+    }
+}

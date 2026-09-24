@@ -1,0 +1,17 @@
+.audio-settings {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: min(440px, 100%);
+    padding: 8px 12px;
+    border-radius: 12px;
+    background: #142e3ce8;
+    color: #ffe5af;
+    font: 700 13px 'Trebuchet MS', Arial, sans-serif;
+}
+.audio-settings .panel-button { width: 132px; min-height: 44px; padding: 10px 18px; font-size: 13px; }
+.audio-settings input { width: 120px; min-height: 44px; accent-color: #eebc54; cursor: pointer; }
+.audio-settings input:focus-visible { outline: 2px solid #ffe5af; outline-offset: 3px; }
+.pause-panel .audio-settings { margin: 16px auto 0; }
