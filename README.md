@@ -6,6 +6,20 @@ React renders the menus, loading screen, HUD, touch controls and records panels.
 
 See [ARCHITECTURE.md](ARCHITECTURE.md) for implementation details, contracts, persistence, resource ownership and balance decisions.
 
+## Live demo
+
+[Play Pirate Battle](https://pirate-battle-zeta.vercel.app/#game)
+
+The demo is deployed on Vercel. Ranking and match history use MSW mock APIs
+and browser-local storage. Records are not shared between devices or domains.
+
+## Production build
+
+Use Node.js 22.12 or newer within the 22.x release line.
+Run `npm ci`, then `npm run build`.
+Run `npm run preview` to inspect the production build locally.
+The deployment must use `VITE_TEST_MODE=false`.
+
 ## Setup
 
 Requirements:

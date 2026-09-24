@@ -69,9 +69,9 @@ function GameAttempt({ session, onMenu, onRetry, onComplete, onProfileComplete }
                     onClick={() => runtimeRef.current?.pause()} disabled={hud.phase !== 'running'}>
                     <img src={UI_ASSETS.pause} alt="" />
                 </button>
-                <button className="game-round-button" aria-label="Main Menu" title="Main Menu" onClick={onMenu}>
+                {/* <button className="game-round-button" aria-label="Main Menu" title="Main Menu" onClick={onMenu}>
                     <img src={UI_ASSETS.home} alt="" />
-                </button>
+                </button> */}
             </div>
         </header> : <div className="game-loading"><AssetLoading progress={progress} error={error}
             onRetry={onRetry} onMenu={onMenu} /></div>}

@@ -2,7 +2,7 @@ import type { ComponentPropsWithRef, ComponentPropsWithoutRef } from 'react';
 import './panels.css';
 
 export function PanelBrand() {
-    return <img className="panel-brand" src="/assets/logo_jungle_gaming.svg" alt="Jungle Gaming" />;
+    return <img className="panel-brand" src="/assets/Hiroshi_logo.png" alt="Hiro Project" />;
 }
 
 export function PanelScene({ children, className = '', ...props }: ComponentPropsWithoutRef<'main'>) {

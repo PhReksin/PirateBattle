@@ -107,7 +107,7 @@ export function MainMenu({ onPlay, onOptions, ranking, history, networkPanel }: 
                 </section>
                 <AudioSettings />
                 {/* <div className="pirate-menu__status">{statusPanel}</div> */}
-                <img className="pirate-menu__brand" src="/assets/logo_jungle_gaming.svg" alt="Jungle Gaming" />
+                <img className="pirate-menu__brand" src="/assets/Hiroshi_logo.png" alt="Hiro Project" />
             </div>
 
             <section className="pirate-menu__utilities" aria-label="Game help and network tools">
