@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react';
 import { mountAudio } from '../audio/audio';
 import { useCallback, useEffect, useState, useSyncExternalStore } from 'react';
 import type { ProfileReport } from '../game/profiler';
@@ -18,7 +19,7 @@ import type { CompletedGame, Screen } from './types';
 import { useSubmission } from './submission';
 import { dataService } from './dataService';
 
-export function App() {
+function GameApp() {
     useEffect(() => mountAudio(), []);
     const submission = useSubmission();
     const { complete, leaveResult } = submission;
@@ -76,4 +77,13 @@ export function App() {
             <option value="saved">Saved options</option><option value="last" disabled={!submission.journal.lastResult}>Last result</option>
         </select></label><Ranking key={JSON.stringify(rankingConfig)} config={rankingConfig} playerId={identity?.id} apiReady={service.apiReady} generation={service.generation} /></>}
         history={identity ? <MatchHistory key={identity.id + ':' + service.generation} playerId={identity.id} playerName={identity.displayName} apiReady={service.apiReady} generation={service.generation} /> : <p role="alert">Local player identity is unavailable.</p>} />;
+}
+
+export function App(){
+    return (
+        <>
+            <GameApp />
+            <Analytics />
+        </>
+    );
 }
